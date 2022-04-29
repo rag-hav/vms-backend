@@ -51,12 +51,12 @@ app.post("/send_email", async (request, response) => {
     from: "vms.sfte@yandex.com",
     to: request.body.email,
     subject: `${request.body.name} wants to visit you at IIITA`,
-    text: `<div style="width:99%">
+    text: `<html><body><div style="width:99%">
       <h1 style="color:cyan;font-weight:bold;text-align:center">Visitor Management System</h1>
       <p>${request.body.name} wants to visit you in IIITA campus. To verify their visitor pass click the link below:- </p>
     <p> <a html="${email_link}">Verify!</a> </p>
     <p> You can also copy and paste this in browser:-  ${email_link}</p>
-    </div>`,
+    </div></body></html>`,
   };
 
   success = await new Promise((resolve) => {
