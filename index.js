@@ -51,12 +51,12 @@ app.post("/send_email", async (request, response) => {
         from: "vms.sfte@yandex.com",
         to: request.body.email,
         subject: `${request.body.name} wants to visit you at IIITA`,
-        text: `<html><body><div style="width:99%">
-      <h1 style="color:cyan;font-weight:bold;text-align:center">Visitor Management System</h1>
-      <p>${request.body.name} wants to visit you in IIITA campus. To verify their visitor pass click the link below:- </p>
-    <p> <a html="${email_link}">Verify!</a> </p>
-    <p> You can also copy and paste this in browser:-  ${email_link}</p>
-    </div></body></html>`,
+        text: `Visitor Management System
+${request.body.name} wants to visit you in IIITA campus. To verify their visitor pass click the link below:- 
+    ${email_link}.
+
+You received this message because ${request.body.name} requested a visitor pass on Visitor Mangement system.
+    `,
     };
 
     success = await new Promise((resolve) => {
